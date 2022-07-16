@@ -4,7 +4,7 @@ load_dotenv()
 from oauth2client.client import GoogleCredentials
 import gspread
 import pandas as pd
-json_path = "../../secret/micro-handler-356505-03f1e8bae92f.json"
+json_path = os.getenv('JSON_KEY')
 gss_key=os.getenv('SPREADSHEET_KEY')
 api = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
