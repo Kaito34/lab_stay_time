@@ -16,23 +16,24 @@ Description: 画像認識による出退勤管理の自動化
 
 
 
-##　API_keyの保存方法
-.env fileを一番上の階層におく
-ファイルの中身  
-    SPREADSHEET_KEY= API key
-    JSON_KEY= Json _key
-./src/secret/
-にJsonファイルを入れる
+## API_keyの保存方法
+1. `.env` fileを一番上の階層におく
+    ファイルの中身  
+    ```bash
+    SPREADSHEET_KEY=API_key
+    JSON_KEY=Json_key
+    ```
+2. `./src/secret/`にJsonファイルを入れる
 
-put_data関数内のname_dictは名前とスプレッドシート上の名前の横軸のいちを照らし合わせるもの
-name_dictの引数は顔の予測モデルの方から渡される予測された人物の名前にしてください
+- put_data関数内のname_dictは名前とスプレッドシート上の名前の横軸のいちを照らし合わせるもの
+- name_dictの引数は顔の予測モデルの方から渡される予測された人物の名前にしてください
 
-spread sheetのpython上の使い方
-https://tanuhack.com/library-gspread/
-https://kirinote.com/python-pivot-spread/
+## spread sheetのpython上の使い方
+- https://tanuhack.com/library-gspread/
+- https://kirinote.com/python-pivot-spread/
 
-API key と　Json key　の取得方法
-https://qiita.com/taqumo/items/674c1d94e1c530cd2953
+## API key と Json key の取得方法
+- https://qiita.com/taqumo/items/674c1d94e1c530cd2953
 
 Project Organization
 ------------
