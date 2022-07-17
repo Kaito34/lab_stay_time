@@ -1,7 +1,18 @@
 lab_stay_time
 ==============================
 
-A short description of the project.
+Description: 画像認識による出退勤管理の自動化
+
+
+# 使用方法
+## YOLOの導入
+参考→[【YOLO V5】AIでじゃんけん検出](https://qiita.com/PoodleMaster/items/5f2cc3248c03b03821b8)
+1. `src/models`に`git clone https://github.com/ultralytics/yolov5`
+2. yolo v5を起動するために必要なライブラリをインストール
+   - `pip install -r yolov5/requirements.txt`
+3. データを`data/processed`に置く
+4. `python src/models/yolov5/train.py --img 1080 --batch 3 --epoch 10 --data 'docs/annotation.yaml' --name lab_stay_time`で学習
+
 
 Project Organization
 ------------
@@ -55,3 +66,4 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
