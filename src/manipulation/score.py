@@ -41,7 +41,7 @@ def get_data(date,name):
     name_p=name_dict[name]
     month=date.month
     date_p=date.day
-    if len(record)<date_p:
+    if len(record)<=date_p:
         record=np.append(record,np.array([record[-1]]*(date_p-len(record)-1)))
         print(len(record))
     if len(record)>date_p:
@@ -55,9 +55,9 @@ def get_data(date,name):
     re_score=today_score+float(score)
     record=np.append(record,re_score)
     gragh(record,name,date.month)
-    np.save(f'../../data/score_data/{name}_score',record)
-    re_score='{:.2f}'.format(re_score)
-    ws.update_cell(34,name_p, re_score)
+    # np.save(f'../../data/score_data/{name}_score',record)
+    # re_score='{:.2f}'.format(re_score)
+    # ws.update_cell(34,name_p, re_score)
     return 
 
 
