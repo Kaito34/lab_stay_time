@@ -13,7 +13,26 @@ Description: 画像認識による出退勤管理の自動化
 3. データを`data/processed`に置く
 4. `python src/models/yolov5/train.py --img 1080 --batch 3 --epoch 10 --data 'docs/annotation.yaml' --name lab_stay_time`で学習
 5. `python src/models/yolov5/detect.py --source 'src/models/yolov5/data/images/kusumoto.jpg' --weight 'src/models/yolov5/runs/train/lab_stay_time8/weights/best.pt'`で予測
-`
+
+
+
+##　API_keyの保存方法
+.env fileを一番上の階層におく
+ファイルの中身  
+    SPREADSHEET_KEY= API key
+    JSON_KEY= Json _key
+./src/secret/
+にJsonファイルを入れる
+
+put_data関数内のname_dictは名前とスプレッドシート上の名前の横軸のいちを照らし合わせるもの
+name_dictの引数は顔の予測モデルの方から渡される予測された人物の名前にしてください
+
+spread sheetのpython上の使い方
+https://tanuhack.com/library-gspread/
+https://kirinote.com/python-pivot-spread/
+
+API key と　Json key　の取得方法
+https://qiita.com/taqumo/items/674c1d94e1c530cd2953
 
 Project Organization
 ------------
