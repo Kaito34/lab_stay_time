@@ -5,11 +5,11 @@
 # 2) file: path/images.txt, or 
 # 3) list: [path1/images/, path2/images/]
 # TODO: 絶対パスから変更
-train: /home/kusumoto/Documents/lab_stay_time/data/processed/
-val: /home/kusumoto/Documents/lab_stay_time/data/processed/
+train: /home/kusumoto/Documents/lab_stay_time/anotation/processed_data/
+val: /home/kusumoto/Documents/lab_stay_time/anotation/processed_data/
 
 # number of classes
-nc: 3
+nc: 4
 
 # class names
-names: ['orui', 'saito', 'kusumoto']
+names: ['orui', 'kusumoto', 'saito', 'nomura']
