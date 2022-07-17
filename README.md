@@ -12,7 +12,8 @@ Description: 画像認識による出退勤管理の自動化
    - `pip install -r yolov5/requirements.txt`
 3. データを`data/processed`に置く
 4. `python src/models/yolov5/train.py --img 1080 --batch 3 --epoch 10 --data 'docs/annotation.yaml' --name lab_stay_time`で学習
-
+5. `python src/models/yolov5/detect.py --source 'src/models/yolov5/data/images/kusumoto.jpg' --weight 'src/models/yolov5/runs/train/lab_stay_time8/weights/best.pt'`で予測
+`
 
 Project Organization
 ------------
