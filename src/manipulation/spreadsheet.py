@@ -23,24 +23,25 @@ def get_sheet(gss_sheet):
 
 
 date=datetime.datetime.today()
-name_dict = {"A":2,  "B":3,"C":4,"D":5,	"かきくけこ":6 }
-name="C"
-name_p=name_dict[name]
-date_p=date.day
-month=date.month
-ws=get_sheet( f'{month}月')
-time_v=f'{date.hour}:{date.minute}'
-cell_value = ws.cell(date_p,name_p).value
-if  str(cell_value) == "None":
-    input_V=f'{time_v}'
-elif '-' in str(cell_value):
-    input_V=f'{cell_value[:5]}-{time_v}'
 
+def put_data(date,name):
+    name_dict=name_dict = {"O":2,  "K":3,"S":4,"N":5}
+    name_p=name_dict[name]
+    date_p=date.day
+    month=date.month
+    ws=get_sheet( f'{month}月')
+    time_v=f'{date.hour}:{date.minute}'
+    cell_value = ws.cell(date_p,name_p).value
+    if  str(cell_value) == "None":
+        input_V=f'{time_v}'
+    elif '-' in str(cell_value):
+        input_V=f'{cell_value[:5]}-{time_v}'
+    else:
+        start_tim=cell_value
+        input_V=f'{start_tim}-{time_v}'
+    ws.update_cell(date_p,name_p, input_V)
 
-else:
-    start_tim=cell_value
-    input_V=f'{start_tim}-{time_v}'
-ws.update_cell(date_p,name_p, input_V)
+put_data(date,name="S")
 
 
 
