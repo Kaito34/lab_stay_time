@@ -11,6 +11,7 @@ import pandas as pd
 
 
 def get_sheet(gss_sheet):
+    print(os.getcwd())
     json_path = os.getenv('JSON_KEY')
     gss_key=os.getenv('SPREADSHEET_KEY')
     gss_sheet=gss_sheet
@@ -25,7 +26,7 @@ def get_sheet(gss_sheet):
 date=datetime.datetime.today()
 
 def put_data(date,name):
-    name_dict=name_dict = {"O":2,  "K":3,"S":4,"N":5}
+    name_dict=name_dict = {"orui":2,  "kusumoto":3,"saito":4,"nomura":5}
     name_p=name_dict[name]
     date_p=date.day
     month=date.month
@@ -40,8 +41,6 @@ def put_data(date,name):
         start_tim=cell_value
         input_V=f'{start_tim}-{time_v}'
     ws.update_cell(date_p,name_p, input_V)
-
-put_data(date,name="S")
 
 
 
