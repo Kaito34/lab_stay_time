@@ -1,0 +1,15 @@
+# https://qiita.com/PoodleMaster/items/5f2cc3248c03b03821b8
+
+# train and val data as 
+# 1) directory: path/images/, 
+# 2) file: path/images.txt, or 
+# 3) list: [path1/images/, path2/images/]
+# TODO: 絶対パスから変更
+train: /home/kusumoto/Documents/lab_stay_time/data/processed/
+val: /home/kusumoto/Documents/lab_stay_time/data/processed/
+
+# number of classes
+nc: 3
+
+# class names
+names: ['orui', 'saito', 'kusumoto']
