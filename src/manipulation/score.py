@@ -28,16 +28,13 @@ def gragh(data,name,month):
     plt.ylabel(' score')
     plt.xlim(0, 32)
     plt.ylim(0, 140)
-    
     plt.savefig(f'../../data/score_data/{name}_{month}.png')
     plt.show()
 
+# np.save(f'../../data/score_data/{name}_score',record)
 def get_data(date,name):
     name_dict=name_dict = {"orui":2, "kusumoto":3,"saito":4,"nomura":5}
-    if date.day== 1:
-        record=0
-    else:
-        record=np.load(f'../../data/score_data/{name}_score.npy')
+    record=np.load(f'../../data/score_data/{name}_score_{date.month}.npy')
     name_p=name_dict[name]
     month=date.month
     date_p=date.day
@@ -55,9 +52,9 @@ def get_data(date,name):
     re_score=today_score+float(score)
     record=np.append(record,re_score)
     gragh(record,name,date.month)
-    # np.save(f'../../data/score_data/{name}_score',record)
-    # re_score='{:.2f}'.format(re_score)
-    # ws.update_cell(34,name_p, re_score)
+    np.save(f'../../data/score_data/{name}_score_{date.month}',record)
+    re_score='{:.2f}'.format(re_score)
+    ws.update_cell(34,name_p, re_score)
     return 
 
 
