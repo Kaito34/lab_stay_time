@@ -21,15 +21,15 @@ def get_sheet(gss_sheet):
 
 date=datetime.today()
 
-def gragh(data,name,month):
-    plt.figure(figsize=(6,4))
-    plt.plot(np.arange(len(data)),data)
-    plt.xlabel('date')
-    plt.ylabel(' score')
-    plt.xlim(0, 32)
-    plt.ylim(0, 140)
-    plt.savefig(f'../../data/score_data/{name}_{month}.png')
-    plt.show()
+# def gragh(data,name,month):
+#     plt.figure(figsize=(6,4))
+#     plt.plot(np.arange(len(data)),data)
+#     plt.xlabel('date')
+#     plt.ylabel(' score')
+#     plt.xlim(0, 32)
+#     plt.ylim(0, 140)
+#     plt.savefig(f'../../data/score_data/{name}_{month}.png')
+#     plt.show()
 
 def get_data(date,name):
     name_dict=name_dict = {"orui":2, "kusumoto":3,"saito":4,"nomura":5}
@@ -43,7 +43,7 @@ def get_data(date,name):
     L=datetime.strptime(today_time[:5],'%H:%M')
     today_score=(E-L).total_seconds()/3600
     re_score=today_score+float(score)
-    # ws.update_cell(34,name_p, re_score)
+    ws.update_cell(34,name_p, re_score)
     return re_score
 
 
