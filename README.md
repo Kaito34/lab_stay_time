@@ -1,8 +1,11 @@
 lab_stay_time
 ==============================
 
-Description: 画像認識による出退勤管理の自動化
-@ 7月Vol.6ハッカソン技育CAMP2022 by 株式会社サポーターズ
+テーマ: 画像認識による出退勤管理の自動化
+
+こちらは「7月Vol.6ハッカソン技育CAMP2022 by 株式会社サポーターズ」での開発を行ったリポジトリです。
+
+発表スライド：[google slide](https://docs.google.com/presentation/d/1oTApgwo6GnOrfLRHa0wzTucgBGXmQGqU1gIDbmZVLrk/edit#slide=id.p)
 
 
 # 使用方法
