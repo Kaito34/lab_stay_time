@@ -14,6 +14,8 @@ lab_stay_time
 1. `src/models`に`git clone https://github.com/ultralytics/yolov5`
 2. yolo v5を起動するために必要なライブラリをインストール
    - `pip install -r yolov5/requirements.txt`
+   - GPU→`pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113`
+   - CPU→`pip install torch==1.11.0+cpu torchvision==0.12.0+cpu torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cpu`
 3. データを`data/processed`に置く
 4. `python src/models/yolov5/train.py --img 1080 --batch 3 --epoch 10 --data 'docs/annotation.yaml' --name lab_stay_time`で学習
 5. `python src/models/yolov5/detect.py --source 'src/models/yolov5/data/images/kusumoto.jpg' --weight 'src/models/yolov5/runs/train/lab_stay_time8/weights/best.pt'`で予測
