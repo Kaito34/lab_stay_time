@@ -43,7 +43,7 @@ def get_data(date,name):
     L=datetime.strptime(today_time[:5],'%H:%M')
     today_score=(E-L).total_seconds()/3600
     re_score=today_score+float(score)
-    # ws.update_cell(34,name_p, re_score)
+    ws.update_cell(34,name_p, re_score)
     return re_score
 
 
