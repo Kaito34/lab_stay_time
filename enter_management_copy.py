@@ -9,8 +9,6 @@ from DBtools import DataBaseConnection
 from GUI.ask_name import Ask_Name 
 from GUI.tell_score import Tell_Score
 import collections
-import matplotlib
-matplotlib.use('tkagg')
 
 import tkinter as tk
 from tkinter import *
@@ -41,14 +39,13 @@ def main():
     results = [] # 1フレームごとの認証結果を一定時間格納
     name = None # １フレームごとの認証結果
     rec_result = None # 最終的な認証結果
-    waiting_time = 3
 
     path = 'data/raw'
     images = []
     classNames = []
     myList = os.listdir(path)
     database = DataBaseConnection('dev')
-    ask_name = Ask_Name()
+
 
     for cls in myList:
         # if cls == ".DS_Store":
@@ -101,7 +98,7 @@ def main():
         ### 3s経過したら、個人の判別 & タイマーのリセット ###
         if timer == True:
             now_time = time.time()
-            if  now_time - start_time >= waiting_time:
+            if  now_time - start_time >= 3:
                 rec_result = collections.Counter(results)
                 rec_result = rec_result.most_common(1)[0][0]
 
@@ -110,13 +107,67 @@ def main():
                 timer = False
         
                 print("rec_result", rec_result, type(rec_result))
-
+        # a = True
         # ## 認識結果を利用者に確認する ###
         if type(rec_result) is str :
-        # a = True
-        # if a == True:
-            confirmed_name = ask_name.main(rec_result)
+            a = True
+        else:
+            a = False
+        # if img is not None:
+        #     a = True
+        # else:
+        #     a = False
+        
+            
+        #     print("False")
+        a = np.random.choice([True, False], p=[0.5, 0.5])
+        print("a", a)
+
+        if a == True:
+            ### ask_nameのべたがき
+            # root = tk.Tk()# Tk() の呼び出しでルート要素を作成します。このルート要素はベースとなるウィンドウそのものを表しています。
+            # root.geometry("300x150+550+300") # 位置
+            # root.title('確認') # ルートのウィンドウにタイトルを設定しています。
+
+            # # ウィジェットの作成
+            # frame1 = ttk.Frame(root, padding=16) # root を親要素にして Frame を作成しています。 Frame は単純な矩形のウィジェットで、 他のコンポーネントを含むコンテナとして使います。
+            # label1 = ttk.Label(frame1, text=f"{name}さんですか?")
+            # t = StringVar() # 入力した文字をセット
+
+            # # button1 = ttk.Button(
+            # #     frame1,
+            # #     text='OK')
+
+            # # button2 = ttk.Button(
+            # #     frame1,
+            # #     text='No')
+            # # レイアウト
+            # frame1.pack()
+            # label1.pack(side=TOP) #左から右にウィジェットを追加
+            # # button1.pack(side=TOP) 
+            # # button2.pack(side=TOP) 
+
+
+            # # ウィンドウの表示開始
+            # root.mainloop()
+
+            ###ベタ書き終了
+
+            ask_name = Ask_Name(rec_result)
+            print("b")
+            confirmed_name = ask_name.main()
+            print("c")
             rec_result = None
+
+        # a = True
+        # if a == False:
+        #     print("None")
+
+        # else:
+        #     print()
+        #     ask_name = Ask_Name(rec_result)
+        #     confirmed_name = ask_name.main()
+        #     rec_result = None
     
         
         ### 判別結果をデータベースに送る ###

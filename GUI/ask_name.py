@@ -7,9 +7,8 @@ from tkinter import ttk
 #     print(combobox.get())
 
 class Ask_Name():
-    def __init__(self, name):
+    def __init__(self):
         super().__init__()
-        self.name = name        
         self.flag = True
 
     def close_window(self):
@@ -49,15 +48,18 @@ class Ask_Name():
 
         self.flag = False
 
-    def main(self):
-        
-        self.root = Tk()# Tk() の呼び出しでルート要素を作成します。このルート要素はベースとなるウィンドウそのものを表しています。
+    def main(self, name):
+        # print("name", type(name))
+        print("root")
+        self.root = tk.Tk()# Tk() の呼び出しでルート要素を作成します。このルート要素はベースとなるウィンドウそのものを表しています。
+        print("geometry")
+
         self.root.geometry("300x150+550+300") # 位置
         self.root.title('確認') # ルートのウィンドウにタイトルを設定しています。
 
         # ウィジェットの作成
         frame1 = ttk.Frame(self.root, padding=16) # self.root を親要素にして Frame を作成しています。 Frame は単純な矩形のウィジェットで、 他のコンポーネントを含むコンテナとして使います。
-        label1 = ttk.Label(frame1, text=f"{self.name}さんですか?")
+        label1 = ttk.Label(frame1, text=f"{name}さんですか?")
         t = StringVar() # 入力した文字をセット
 
         button1 = ttk.Button(
@@ -82,7 +84,7 @@ class Ask_Name():
         ###結果をスプレッドシートに送る###
 
         if self.flag == True:
-            return self.name     
+            return name     
 
         else:
             return self.v.get() 
@@ -91,7 +93,7 @@ class Ask_Name():
 if __name__ == '__main__':
     ###　受け取る ###
     name = "orui"   
-    ask_name = Ask_Name(name)
-    return_name = ask_name.main()
+    ask_name = Ask_Name()
+    return_name = ask_name.main(name)
     print (return_name)
 
