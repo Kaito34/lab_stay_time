@@ -127,8 +127,12 @@ def main():
     ask_name = Ask_Name()
 
     for cls in myList:
+        # if cls == ".DS_Store":
+        #     continue
 
         # .DS_Storeとか.gitkeepとか余分なものが混ざっていることがあるので除く
+        # if os.path.splitext(cls)[1] != ".png":
+        #     continue
         if os.path.splitext(cls)[1] not in [".png", ".jpg"]:
             continue
 
@@ -198,6 +202,38 @@ def main():
         # ### 認識結果を利用者に確認する (tkinter) ###
         # if rec_result is not None:
             # ask_name.main(rec_result)
+        #     root = tk.Tk()
+        #     root.geometry("300x150+550+300") 
+        #     root.title('confirmation') 
+
+        #     frame1 = ttk.Frame(root, padding=16) 
+        #     label1 = ttk.Label(frame1, text=f"Are you {name}?")
+
+        #     frame1.pack()
+        #     label1.pack(side=TOP) 
+
+        #     root.mainloop()
+
+        #     # confirmed_name = ask_name.main(rec_result)
+        #     rec_result = None
+        
+        # ### なぜかこれを書かないとエラーが出る ###
+        # else:
+        #     continue
+        #     root = tk.Tk()
+        #     root.geometry("300x150+550+300") 
+        #     root.title('confirmation') 
+
+        #     frame1 = ttk.Frame(root, padding=16) 
+        #     label1 = ttk.Label(frame1, text=f"Are you {name}?")
+
+        #     frame1.pack()
+        #     label1.pack(side=TOP) 
+
+        #     root.mainloop()
+
+        #     # confirmed_name = ask_name.main(rec_result)
+        #     rec_result = None
             
 
 
